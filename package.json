@@ -1,0 +1,18 @@
+{
+  "name": "most-prs-merged",
+  "version": "0.0.0",
+  "description": "This is a simple Node.js-based CLI tool that reports the # of Github Pull Requests merged by each member of a specified organization",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "src/*.js"
+  ],
+  "author": "Social Tables",
+  "license": "MIT",
+  "preferGlobal": true,
+  "bin": {
+    "most-prs-merged": "index.js"
+  }
+}
