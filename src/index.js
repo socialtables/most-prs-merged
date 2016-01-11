@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 require("./load-env-and-validate.js");
 
 const resultsTable = require("./lib/results-table.js");
