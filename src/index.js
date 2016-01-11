@@ -1,29 +1,23 @@
-const Table = require("easy-table");
+require("./load-env-and-validate.js");
 
-const data = [
-  {
-    "name": "roloyolo",
-    "count": 15
-  },
-  {
-    "name": "danberger",
-    "count": 5
-  },
-  {
-    "name": "mr.bigglesworth",
-    "count": 2
+const resultsTable = require("./lib/results-table.js");
+const githubApi = require("./lib/github-api.js")(process.env.GITHUB_OAUTH_TOKEN);
+
+/***************************************************
+
+  Step 1: Search for all PRs that match criteria
+
+***************************************************/
+const user = process.env.GITHUB_USER || "socialtables";
+const startingDate = process.env.STARTING_DATE || "2016-01-01";
+const searchTerm = `user:${user} type:pr is:merged merged:>=${startingDate}`;
+
+githubApi.search.issues({
+  "q": searchTerm,
+  "per_page": 100
+}, (err, res) => {
+  if (err) {
+    throw new Error("Failed to fetch PRs from Github: ", err);
   }
-];
-
-const t = new Table();
-
-data.forEach(function(row) {
-  t.cell("Name", row.name);
-  t.cell("# of PRs Merged", row.count);
-  t.newRow();
+  console.log( JSON.stringify(res) );
 });
-
-console.log("Starting Date: ", "2016-01-01");
-console.log("Organization: ", "socialtables");
-console.log("\n");
-console.log(t.toString());

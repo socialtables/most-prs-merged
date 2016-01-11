@@ -2,11 +2,12 @@
 
 ## Description
 
-This is a simple Node.js-based CLI tool that reports the # of Github Pull Requests merged by each member of a specified organization
+This is a simple Node.js-based CLI tool that reports the # of Github Pull Requests merged by a specified user or multiple users within an organization
 
 ## Instructions
 
 * Clone down the repository
+* Switch to specified Node version in `.nvmrc` -- `nvm use`
 * Install all the dependencies -- `npm install`
 * Install the binary on your system -- `npm link`
 * Make sure specified environment variables are defined in `.env` file!
@@ -40,7 +41,7 @@ to the working directory. Below is an example .env file which contains all
 env variables, with comments for special use.
 
 ```sh
-GITHUB_OAUTH_TOKEN=<your-github-oauth-token>
-GITHUB_ORG=<your-github-org-name>
-STARTING_DATE="2016-01-01" ## FORMAT: "YYYY-MM-DD"
+GITHUB_OAUTH_TOKEN=<your-github-oauth-token> ## __<Required>__
+GITHUB_USER="socialtables" ## __<Optional>__ This can be a Github username or organization name
+STARTING_DATE="2016-01-01" ## __<Optional>__ FORMAT: "YYYY-MM-DD"
 ```

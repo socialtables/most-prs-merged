@@ -16,7 +16,8 @@
     "most-prs-merged": "src/index.js"
   },
   "dependencies": {
+    "dotenv": "^1.2.0",
     "easy-table": "^1.0.0",
-    "request": "^2.67.0"
+    "github": "^0.2.4"
   }
 }
