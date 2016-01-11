@@ -14,5 +14,9 @@
   "preferGlobal": true,
   "bin": {
     "most-prs-merged": "src/index.js"
+  },
+  "dependencies": {
+    "easy-table": "^1.0.0",
+    "request": "^2.67.0"
   }
 }

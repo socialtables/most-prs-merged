@@ -16,7 +16,16 @@ This is a simple Node.js-based CLI tool that reports the # of Github Pull Reques
 
 $ most-prs-merged
 
-## TODO: show example output of command
+Starting Date:  2016-01-01
+Organization:  socialtables
+
+
+Name             # of PRs Merged
+---------------  ---------------
+roloyolo         15
+danberger        5
+mr.bigglesworth  2
+
 ```
 
 ### .env files
@@ -33,5 +42,5 @@ env variables, with comments for special use.
 ```sh
 GITHUB_OAUTH_TOKEN=<your-github-oauth-token>
 GITHUB_ORG=<your-github-org-name>
-MERGED_AFTER_DATE="2016-01-01" ## FORMAT: "YYYY-MM-DD"
+STARTING_DATE="2016-01-01" ## FORMAT: "YYYY-MM-DD"
 ```
