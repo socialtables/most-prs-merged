@@ -6,16 +6,15 @@ This is a simple Node.js-based CLI tool that reports the # of Github Pull Reques
 
 ## Instructions
 
-* Clone down the repository
+* Clone down the repository and `cd` into the directory via Terminal
 * Switch to specified Node version in `.nvmrc` -- `nvm use`
 * Install all the dependencies -- `npm install`
-* Install the binary on your system -- `npm link`
 * Make sure specified environment variables are defined in `.env` file!
 * Execute the binary:
 
 ```sh
 
-$ most-prs-merged
+$ npm start
 
 Starting Date:  2016-01-01
 Organization:  socialtables

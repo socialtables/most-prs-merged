@@ -2,12 +2,22 @@
 
 const Table = require("easy-table");
 
+const FIRST_COLUMN = "Name";
+const SECOND_COLUMN = "# of PRs Merged";
+
 const t = new Table();
 
-module.exports.addRow = function(data) {
-  t.cell("Name", data.name);
-  t.cell("# of PRs Merged", data.count);
+function addRow(data) {
+  t.cell(FIRST_COLUMN, data.name);
+  t.cell(SECOND_COLUMN, data.count, Table.number());
   t.newRow();
 };
 
-module.exports.toString = t.toString;
+function sortByCount() {
+  t.sort([SECOND_COLUMN]);
+};
+
+module.exports = Object.assign(t, {
+  addRow,
+  sortByCount
+});

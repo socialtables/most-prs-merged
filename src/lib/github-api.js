@@ -1,5 +1,6 @@
 "use strict";
 
+const async = require("async");
 const GitHubApi = require("github");
 
 module.exports = function(oauthToken) {
@@ -22,10 +23,13 @@ module.exports = function(oauthToken) {
 
     const requestCallbackHandler = (err, res) => {
       if (err) {
-        throw new Error("Failed to fetch PRs from Github: ", err);
+        return callback(err);
       }
 
-      res.items.forEach((i) => pullRequests.push({ number: res.number, });
+      res.items.forEach((i) => {
+        const [,,,,user,repo,,number] = i.url.split("/");
+        pullRequests.push({ user, repo, number });
+      });
 
       if (githubApiClient.hasNextPage(res)) {
         githubApiClient.getNextPage(res, requestCallbackHandler);
@@ -41,9 +45,34 @@ module.exports = function(oauthToken) {
     }, requestCallbackHandler);
   };
 
+  function getFullPullRequestData(pullRequests, callback) {
+    const requests = pullRequests.map((pr) => {
+      return function(cb) {
+        githubApiClient.pullRequests.get({
+          "user": pr.user,
+          "repo": pr.repo,
+          "number": pr.number
+        }, (err, res) => {
+          if (err) {
+            return cb(err);
+          }
+          cb(null, res);
+        });
+      };
+    });
+
+    async.parallelLimit(requests, 10, (err, results) => {
+      if (err) {
+        return callback(err);
+      }
+      callback(null, results);
+    });
+  };
+
   // expose public interface
   return Object.assign(githubApiClient, {
-    findPullRequests
+    findPullRequests,
+    getFullPullRequestData
   });
 
 }; // End of module

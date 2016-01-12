@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "This is a simple Node.js-based CLI tool that reports the # of Github Pull Requests merged by each member of a specified organization",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node --harmony-destructuring src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
@@ -13,7 +13,7 @@
   "license": "MIT",
   "preferGlobal": true,
   "bin": {
-    "most-prs-merged": "src/index.js"
+    "most-prs-merged": "cli-runner.js"
   },
   "dependencies": {
     "async": "^1.5.2",
