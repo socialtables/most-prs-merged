@@ -1,3 +1,5 @@
+"use strict";
+
 const Table = require("easy-table");
 
 const t = new Table();
