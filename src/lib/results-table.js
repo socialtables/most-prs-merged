@@ -3,7 +3,7 @@
 const Table = require("easy-table");
 
 const FIRST_COLUMN = "Name";
-const SECOND_COLUMN = "# of PRs Merged";
+const SECOND_COLUMN = "PRs Merged";
 
 const t = new Table();
 

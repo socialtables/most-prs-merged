@@ -20,7 +20,7 @@ Starting Date:  2016-01-01
 Organization:  socialtables
 
 
-Name             # of PRs Merged
+Name              PRs Merged
 ---------------  ---------------
 roloyolo         15
 danberger        5
@@ -40,7 +40,7 @@ to the working directory. Below is an example .env file which contains all
 env variables, with comments for special use.
 
 ```sh
-GITHUB_OAUTH_TOKEN=<your-github-oauth-token> ## __<Required>__
-GITHUB_USER="socialtables" ## __<Optional>__ This can be a Github username or organization name
-STARTING_DATE="2016-01-01" ## __<Optional>__ FORMAT: "YYYY-MM-DD"
+GITHUB_OAUTH_TOKEN=<your-github-oauth-token> ## <Required>
+GITHUB_USER="socialtables" ## <Optional> This can be a Github username or organization name
+STARTING_DATE="2016-01-01" ## <Optional> FORMAT: "YYYY-MM-DD"
 ```
