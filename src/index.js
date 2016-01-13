@@ -45,7 +45,7 @@ githubApiClient.findPullRequests(searchTerm, (err, pullRequests) => {
         loginToCountMap[pr.merged_by.login]++;
       }
       else if (mergedByInfoExists && !entryExistsInMap) {
-        loginToCountMap[pr.merged_by.login] = 0;
+        loginToCountMap[pr.merged_by.login] = 1;
       }
 
       return loginToCountMap;
