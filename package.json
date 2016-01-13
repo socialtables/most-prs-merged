@@ -1,6 +1,6 @@
 {
   "name": "most-prs-merged",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a simple Node.js-based CLI tool that reports the # of Github Pull Requests merged by each member of a specified organization",
   "scripts": {
     "start": "node --harmony-destructuring src/index.js",
