@@ -12,7 +12,7 @@ const githubApiClient = require("./lib/github-api.js")(process.env.GITHUB_OAUTH_
 
 ***************************************************/
 const user = process.env.GITHUB_USER || "socialtables";
-const startingDate = process.env.STARTING_DATE || "2016-01-01";
+const startingDate = process.env.STARTING_DATE || "2016-01-01"; // YYYY-MM-DD
 const searchTerm = `user:${user} type:pr is:merged merged:>=${startingDate}`;
 
 githubApiClient.findPullRequests(searchTerm, (err, pullRequests) => {
